@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://arhelsklad.vercel.app/api';
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://arhsklad.vercel.app//api';
     
     const modal = document.getElementById('modal');
     const toolForm = document.getElementById('toolForm');
@@ -48,23 +48,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show modal
     const showModal = (title) => {
         modalTitle.textContent = title;
-        modal.classList.remove('hidden');
+        modal.classList.add('show');
     };
 
     // Hide modal
     const hideModal = () => {
-        modal.classList.add('hidden');
+        modal.classList.remove('show');
         toolForm.reset();
         isEditing = false;
     };
 
-    // Add tool
+    // Add tool button click
     addToolBtn.addEventListener('click', () => {
         showModal('Добавить инструмент');
     });
 
-    // Cancel
+    // Cancel button click
     cancelBtn.addEventListener('click', hideModal);
+
+    // Click outside modal to close
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            hideModal();
+        }
+    });
 
     // Form submit
     toolForm.addEventListener('submit', async (e) => {

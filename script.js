@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://arhelsklad.vercel.app//api';
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://arhelsklad.vercel.app/api';
     
     const modal = document.getElementById('modal');
     const toolForm = document.getElementById('toolForm');
